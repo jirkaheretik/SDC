@@ -35,8 +35,11 @@ public class Prvocisla {
     }
 
     public static void main(String[] args) {
-        
-        String inputFile = "vzorek_dat.xlsx";
+        if (args.length < 1) {
+        System.out.println("Vstupní parametr: Zadejte název datového souboru.");
+        return;
+        }
+        String inputFile = "args[0]";
 
         try (InputStream is = Prvocisla.class.getClassLoader().getResourceAsStream(inputFile);
              Workbook workbook = new XSSFWorkbook(is)) {
