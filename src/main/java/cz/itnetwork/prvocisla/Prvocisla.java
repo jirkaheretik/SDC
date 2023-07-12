@@ -14,6 +14,17 @@ import java.util.List;
 
 public class Prvocisla {
 
+    /*
+    Funkce zjistujici prvocislo bez sita (tj. pouzitelna i pro velka cisla, kde by se cele sito neveslo do pameti)
+    */
+    public static boolean isPrime(int number) {
+        if (number < 2) return false;
+        if (number == 2) return true;
+        for (int i = 3; i <= Math.sqrt(number); i+= 2)
+            if (number % i == 0) return false;
+        return true;
+    }
+
     public static boolean[] sieveOfEratosthenes(int maxNumber) {
         boolean[] primes = new boolean[maxNumber + 1];
         primes[0] = false;
